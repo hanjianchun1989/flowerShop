@@ -1,0 +1,231 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hanjianchun</groupId>
+	<artifactId>flowerShop</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<properties>
+		<!-- version properties -->
+		<junit.version>4.12</junit.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis-spring.version>1.2.5</mybatis-spring.version>
+		<mybatis-pagehelper.version>5.1.2</mybatis-pagehelper.version>
+		<mybatis-generator.version>1.3.2</mybatis-generator.version>
+		<mysql-connction.version>5.1.34</mysql-connction.version>
+		<druid.version>1.0.18</druid.version>
+		<com.alibaba.fastjson>1.2.8</com.alibaba.fastjson>
+		<slf4j.version>1.7.22</slf4j.version>
+		<!-- <log4j.version>1.2.17</log4j.version> -->
+		<servlet-api.version>3.1.0</servlet-api.version>
+		<jstl.version>1.2</jstl.version>
+		<jsp-api.version>2.0</jsp-api.version>
+		<jackson.version>2.7.3</jackson.version>
+		<freemarker.version>2.3.23</freemarker.version>
+		<httpclient.version>4.5.1</httpclient.version>
+		<!-- other version properties -->
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<commons-fileupload.version>1.3.1</commons-fileupload.version>
+		<org.apache.shiro.version>1.2.1</org.apache.shiro.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+
+		<!--mybatis spring 插件 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${mybatis-pagehelper.version}</version>
+		</dependency>
+
+		<!-- mysql连接 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connction.version}</version>
+		</dependency>
+
+		<!-- 数据源 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		<!-- alibaba -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${com.alibaba.fastjson}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
+		<!-- Apache Common -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>log4j</groupId> <artifactId>log4j</artifactId> 
+			<version>${log4j.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
+
+		<!-- kaptcha -->
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<!-- 执行mybatis-generator:generate命令 -->
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<!-- mybatis-generator 配置文件存放地址 -->
+					<!-- <configurationFile>src/test/resources/generator/mybatis-generator.xml</configurationFile> -->
+					<!--允许移动生成的文件 -->
+					<verbose>true</verbose>
+					<!--允许覆盖生成的文件 -->
+					<overwrite>true</overwrite>
+				</configuration>
+				<executions>
+					<execution>
+						<id>Generate MyBatis Files</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>generate</phase>
+						<configuration>
+							<verbose>true</verbose>
+							<overwrite>true</overwrite>
+						</configuration>
+					</execution>
+				</executions>
+
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql-connction.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.mybatis.generator</groupId>
+						<artifactId>mybatis-generator-core</artifactId>
+						<version>1.3.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

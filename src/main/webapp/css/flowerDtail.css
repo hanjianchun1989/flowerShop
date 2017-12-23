@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+#detail{
+	background:url(../images/titles/detail.jpg) no-repeat;
+	padding:35px 0px 0px 0px;
+}
+#content{								/* 具体内容 */
+	border-left:2px solid #FFF;		/* 左边框 */
+	border-right:2px solid #FFF;		/* 右边框 */
+	border-bottom:2px solid #FFF;	/* 下边框 */
+	border-top:1px solid #FFF;
+	padding:15px;
+	font-size:30px;
+}
+img#infor{
+	float:left;					/* 文字环绕图片 */
+	margin-right:50px;			/* 右侧距离 */
+	margin-bottom:25px;			/* 下端距离 */
+}
+ul#tabnav{
+	list-style-type:none;
+	margin:0px;
+	padding-left:0px;					/* 左侧无空隙 */
+	padding-bottom:23px;
+	border-bottom:1px solid #FFF;	/* 菜单的下边框 */
+	font:bold 12px verdana, arial;
+}
+ul#tabnav li{
+	float:left;
+	height:22px;
+	background-color:#FFF;
+	margin:0px 3px 0px 0px;	
+	border:0px solid #FFF;
+}
+ul#tabnav a:link, ul#tabnav a:visited{
+	display:block;						/* 块元素 */
+	color:#006eb3;
+	text-decoration:none;
+	padding:5px 10px 3px 10px;
+}
+ul#tabnav a:hover{
+	background-color:#006eb3;
+	color:#FFFFFF;
+}
+#baseInfro li.baseInfro, #picture li.picture,	/* 当前页面的菜单项 */
+#meaning li.meaning, #saleRecord li.saleRecord,
+#nextstation li.nextstation,
+#blog li.blog{
+	border-bottom:1px solid #ffd8d9;	/* 白色下边框，覆盖<ul>中的蓝色下边框 */
+	color:#000000;
+	background-color:#ffd8d9;
+}
+#baseInfro li.baseInfro a:link, #baseInfro li.baseInfro a:visited,	/* 当前页面的菜单项的超链接 */
+#picture li.picture a:link, #picture li.picture a:visited,
+#meaning li.meaning a:link, #meaning li.meaning a:visited,
+#saleRecord li.saleRecord a:link, #saleRecord li.saleRecord a:visited,
+#nextstation li.nextstation a:link, #nextstation li.nextstation a:visited,
+#blog li.blog a:link, #blog li.blog a:visited{
+	color:#000000;
+	background-color:#ffd8d9;
+}
+#baseInfro li.baseInfro a:hover, #picture li.picture a:hover,
+#meaning li.meaning a:hover, #saleRecord li.saleRecord a:hover,
+#nextstation li.nextstation a:hover,
+#blog li.blog a:hover{
+	color:#006eb3;
+	text-decoration:underline;
+}

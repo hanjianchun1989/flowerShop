@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+	<properties resource="generator.properties" />
+
+	<!-- 指定数据连接驱动jar地址 -->
+	<!-- <classPathEntry location="${classPath}" /> -->
+	<context id="context1">
+		<!-- 生成的Java文件的编码 -->
+		<property name="javaFileEncoding" value="UTF-8" />
+
+		<!-- 注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+			<property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${jdbc_driver}"
+			connectionURL="${jdbc_url}" userId="${jdbc_user}" password="${jdbc_password}" />
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 
+			和 NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="com.flower.ssm.pojo"
+			targetProject="${project}">
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.flower.ssm.mapper"
+			targetProject="${project}" />
+
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator targetPackage="com.flower.ssm.mapper"
+			targetProject="${project}" type="XMLMAPPER" />
+
+		<table tableName="bouquet" />
+		<table tableName="manager" />
+		<table tableName="member" />
+		<table tableName="messages" />
+		<table tableName="order_list" />
+		<table tableName="sale_list" />
+	</context>
+</generatorConfiguration>

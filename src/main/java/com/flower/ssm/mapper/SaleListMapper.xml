@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flower.ssm.mapper.SaleListMapper">
+  <resultMap id="BaseResultMap" type="com.flower.ssm.pojo.SaleList">
+    <id column="sale_list_id" jdbcType="INTEGER" property="saleListId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="bouquet_id" jdbcType="INTEGER" property="bouquetId" />
+    <result column="sale_quantity" jdbcType="INTEGER" property="saleQuantity" />
+    <result column="sale_date" jdbcType="DATE" property="saleDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    sale_list_id, member_name, bouquet_id, sale_quantity, sale_date
+  </sql>
+  <select id="selectByExample" parameterType="com.flower.ssm.pojo.SaleListExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sale_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sale_list
+    where sale_list_id = #{saleListId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sale_list
+    where sale_list_id = #{saleListId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.flower.ssm.pojo.SaleListExample">
+    delete from sale_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.flower.ssm.pojo.SaleList">
+    insert into sale_list (sale_list_id, member_name, bouquet_id, 
+      sale_quantity, sale_date)
+    values (#{saleListId,jdbcType=INTEGER}, #{memberName,jdbcType=VARCHAR}, #{bouquetId,jdbcType=INTEGER}, 
+      #{saleQuantity,jdbcType=INTEGER}, #{saleDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flower.ssm.pojo.SaleList">
+    insert into sale_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="saleListId != null">
+        sale_list_id,
+      </if>
+      <if test="memberName != null">
+        member_name,
+      </if>
+      <if test="bouquetId != null">
+        bouquet_id,
+      </if>
+      <if test="saleQuantity != null">
+        sale_quantity,
+      </if>
+      <if test="saleDate != null">
+        sale_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="saleListId != null">
+        #{saleListId,jdbcType=INTEGER},
+      </if>
+      <if test="memberName != null">
+        #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="bouquetId != null">
+        #{bouquetId,jdbcType=INTEGER},
+      </if>
+      <if test="saleQuantity != null">
+        #{saleQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="saleDate != null">
+        #{saleDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.flower.ssm.pojo.SaleListExample" resultType="java.lang.Long">
+    select count(*) from sale_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sale_list
+    <set>
+      <if test="record.saleListId != null">
+        sale_list_id = #{record.saleListId,jdbcType=INTEGER},
+      </if>
+      <if test="record.memberName != null">
+        member_name = #{record.memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bouquetId != null">
+        bouquet_id = #{record.bouquetId,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleQuantity != null">
+        sale_quantity = #{record.saleQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="record.saleDate != null">
+        sale_date = #{record.saleDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sale_list
+    set sale_list_id = #{record.saleListId,jdbcType=INTEGER},
+      member_name = #{record.memberName,jdbcType=VARCHAR},
+      bouquet_id = #{record.bouquetId,jdbcType=INTEGER},
+      sale_quantity = #{record.saleQuantity,jdbcType=INTEGER},
+      sale_date = #{record.saleDate,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flower.ssm.pojo.SaleList">
+    update sale_list
+    <set>
+      <if test="memberName != null">
+        member_name = #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="bouquetId != null">
+        bouquet_id = #{bouquetId,jdbcType=INTEGER},
+      </if>
+      <if test="saleQuantity != null">
+        sale_quantity = #{saleQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="saleDate != null">
+        sale_date = #{saleDate,jdbcType=DATE},
+      </if>
+    </set>
+    where sale_list_id = #{saleListId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flower.ssm.pojo.SaleList">
+    update sale_list
+    set member_name = #{memberName,jdbcType=VARCHAR},
+      bouquet_id = #{bouquetId,jdbcType=INTEGER},
+      sale_quantity = #{saleQuantity,jdbcType=INTEGER},
+      sale_date = #{saleDate,jdbcType=DATE}
+    where sale_list_id = #{saleListId,jdbcType=INTEGER}
+  </update>
+</mapper>
